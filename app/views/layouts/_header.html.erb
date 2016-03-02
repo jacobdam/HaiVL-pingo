@@ -11,6 +11,7 @@
     </div>
 
     <ul class="nav navbar-nav navbar-right">
+      <li><%= link_to 'Đăng bài', new_article_path %></li>
       <% if user_signed_in? %>
         <li><%= link_to 'Hello ' + current_user.email, edit_user_registration_path %></li>
         <li><%= link_to 'Đăng xuất', destroy_user_session_path, method: :delete %></li>

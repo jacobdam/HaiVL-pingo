@@ -1,0 +1,7 @@
+<h2><%= @article.title %></h2>
+<div class="article-content">
+  <%= simple_format @article.content %>
+</div>
+<div class="article-footer">
+  Đăng bởi <%= @article.user.email %>, Cách đây <%= time_ago_in_words(@article.created_at) %>
+</div>
