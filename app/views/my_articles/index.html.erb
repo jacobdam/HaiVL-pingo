@@ -1,0 +1,21 @@
+<h2>Quản lý bài viết</h2>
+<table class="table table-striped">
+  <thead>
+    <th>ID</th>
+    <th>Tiêu đề</th>
+    <td></th>
+  </thead>
+  <tbody>
+    <% @articles.each do |article| %>
+      <tr>
+        <td><%= article.id %></td>
+        <td><%= article.title %></td>
+        <td>
+          <%= link_to 'Xem', article_path(article), class: 'btn btn-default btn-sm' %>
+          <%= link_to 'Sửa', edit_article_path(article), class: 'btn btn-warning btn-sm' %>
+          <%= link_to 'Xoá', article_path(article), method: :delete, data: { confirm: 'Bạn có muốn xoá bài này không?' }, class: 'btn btn-danger btn-sm' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

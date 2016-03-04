@@ -1,1 +1,12 @@
 <h2>Bài viết mới nhất</h2>
+
+<% @articles.each do |article| %>
+  <h2><%= article.title %></h2>
+  <div class="article-content">
+    <%= simple_format(truncate(article.content, length: 100)) %>
+    <%= link_to 'Chi tiết', article_path(article) %>
+  </div>
+  <div class="article-footer">
+    Đăng bởi <%= article.user.email %>, Cách đây <%= time_ago_in_words(article.created_at) %>
+  </div>
+<% end %>
