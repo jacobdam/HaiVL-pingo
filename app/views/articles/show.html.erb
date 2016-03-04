@@ -8,3 +8,28 @@
     <%= link_to 'Edit', edit_article_path(@article) %>
   <% end %>
 </div>
+
+<% if user_signed_in? %>
+  <div class="comment-form">
+    <%= form_for [@article, @comment] do |f| %>
+      <%= f.text_area :content, placeholder: 'Bình luận của bạn' %>
+      <%= f.submit 'Lưu' %>
+    <% end %>
+  </div>
+<% else %>
+  <%= link_to "Hãy đăng nhập để bình luận", new_user_session_path %>
+<% end %>
+
+<div class="comments">
+  <p>Có <%= @comments.count %> bình luận:</p>
+  <% @comments.each do |comment| %>
+    <div class="comment">
+      <div class"comment-content">
+        <%= simple_format @article.content %>
+      </div>
+      <div class="comment-info">
+        Bởi <%= comment.user.email %>, cách đây <%= time_ago_in_words(comment.created_at) %>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -18,6 +18,8 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @comment = Comment.new
+    @comments = @article.comments.order(created_at: :desc)
   end
 
   def edit
@@ -38,12 +40,6 @@ class ArticlesController < ApplicationController
     article.destroy
 
     redirect_to my_articles_path
-  end
-
-  def check_user_signed_in
-    if current_user == nil
-      redirect_to new_user_session_path, alert: 'Phải đăng nhập trước'
-    end
   end
 
   def article_params

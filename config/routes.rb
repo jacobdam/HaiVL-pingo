@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root 'homes#latest'
   devise_for :users
-  resources :articles
+  resources :articles do
+    resources :comments, only: [:create]
+  end
   resources :my_articles, only: [:index]
 
 
