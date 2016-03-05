@@ -17,11 +17,27 @@
             <%= current_user.email %><span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <li><%= link_to 'Cập nhật thông tin cá nhân', edit_user_registration_path %></li>
-            <li><%= link_to 'Đăng bài', new_article_path %></li>
-            <li><%= link_to 'Quản lý bài viết', my_articles_path %></li>
+            <li>
+              <%= link_to edit_user_registration_path do %>
+                <span class="glyphicon glyphicon-user"></span> Cập nhật thông tin cá nhân
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_article_path do %>
+                <span class="glyphicon glyphicon-pencil"></span> Đăng bài
+              <% end %>
+            </li>
+            <li>
+              <%= link_to my_articles_path do %>
+                <span class="glyphicon glyphicon-th-list"></span> Quản lý bài viết
+              <% end %>
+            </li>
             <li role="separator" class="divider"></li>
-            <li><%= link_to 'Đăng xuất', destroy_user_session_path, method: :delete %></li>
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <span class="glyphicon glyphicon-log-out"></span> Đăng xuất
+              <% end %>
+            </li>
           </ul>
         </li>
       <% else %>
