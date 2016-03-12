@@ -33,3 +33,7 @@ footer {
 .avatar.avatar-tiny {
   border-radius: 4px;
 }
+
+.avatar.avatar-thumb {
+  border-radius: 8px;
+}
