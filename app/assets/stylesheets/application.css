@@ -25,3 +25,11 @@ footer {
   color: #99979c;
   text-align: center;
 }
+
+.avatar {
+  background-color: #888;
+}
+
+.avatar.avatar-tiny {
+  border-radius: 4px;
+}
