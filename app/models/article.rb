@@ -9,4 +9,8 @@ class Article < ActiveRecord::Base
   def votes_count(value)
     votes.where(value: value).count
   end
+
+  def increase_views_count
+    Article.increment_counter(:views_count, self.id)
+  end
 end
