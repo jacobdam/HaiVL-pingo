@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :articles do
     resources :comments, only: [:create]
+    resource :votes, only: [:update, :destroy]
   end
   resources :my_articles, only: [:index]
 

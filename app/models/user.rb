@@ -10,4 +10,18 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
 
   validates :name, presence: true
+
+  def vote!(article, value)
+    vote = Vote.where(user: self, article: article).first_or_initialize
+    vote.value = value
+    vote.save!
+  end
+
+  def unvote!(article)
+    Vote.where(user: self, article: article).delete_all
+  end
+
+  def voted?(article, value)
+    Vote.where(user: self, article: article, value: value).exists?
+  end
 end

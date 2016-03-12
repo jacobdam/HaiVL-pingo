@@ -7,6 +7,7 @@
   <% if user_signed_in? && current_user == @article.user %>
     <%= link_to 'Edit', edit_article_path(@article) %>
   <% end %>
+  <%= render 'articles/vote_buttons', article: @article %>
 </div>
 
 <% if user_signed_in? %>

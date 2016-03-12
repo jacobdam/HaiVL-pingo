@@ -1,0 +1,11 @@
+<% if current_user.voted?(article, value) %>
+  <%= link_to article_votes_path(article), method: :delete, class:"btn active btn-default btn-lg" do %>
+    <span class="glyphicon glyphicon-thumbs-<%= value == 1 ? 'up' : 'down' %>"></span>
+    <%= article.votes_count(value) %>
+  <% end %>
+<% else %>
+  <%= link_to article_votes_path(article, vote: {value: value}), method: :put, class:"btn btn-default btn-lg" do %>
+    <span class="glyphicon glyphicon-thumbs-<%= value == 1 ? 'up' : 'down' %>"></span>
+    <%= article.votes_count(value) %>
+  <% end %>
+<% end %>
