@@ -12,35 +12,22 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 
     <title>Haivl</title>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
     <%= render 'layouts/header' %>
 
-    <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="main">
       <div class="container">
-        <% if notice %>
-          <div class="alert alert-success"><%= notice %></div>
-        <% end %>
-        <% if alert %>
-          <div class="alert alert-danger"><%= alert %></div>
-        <% end %>
-
+        <%= render 'layouts/flash_messages' %>
         <%= yield %>
       </div>
     </div>
 
     <%= render 'layouts/footer' %>
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
   </body>
 </html>
