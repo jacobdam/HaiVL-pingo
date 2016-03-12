@@ -8,4 +8,6 @@ class User < ActiveRecord::Base
 
   has_many :articles
   mount_uploader :avatar, AvatarUploader
+
+  validates :name, presence: true
 end
