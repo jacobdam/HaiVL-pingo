@@ -1,0 +1,17 @@
+<div class="comment-form">
+  <div class="media">
+    <div class="media-left">
+      <%= render_avatar(current_user, :thumb) %>
+    </div>
+    <div class="media-body">
+      <%= form_for [article, Comment.new] do |f| %>
+        <div class="form-group">
+          <%= f.text_area :content, placeholder: 'Bình luận của bạn', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.submit 'Lưu', class: 'btn btn-default pull-right' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

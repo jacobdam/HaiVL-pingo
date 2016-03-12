@@ -4,35 +4,4 @@
   <%= simple_format @article.content %>
 </div>
 <%= render 'articles/footer', article: @article %>
-
-<% if user_signed_in? %>
-  <div class="comment-form">
-    <%= form_for [@article, @comment] do |f| %>
-      <%= f.text_area :content, placeholder: 'Bình luận của bạn' %>
-      <%= f.submit 'Lưu' %>
-    <% end %>
-  </div>
-<% else %>
-  <%= link_to "Hãy đăng nhập để bình luận", new_user_session_path %>
-<% end %>
-
-<div class="comments">
-  <p>Có <%= @comments.count %> bình luận:</p>
-  <% @comments.each do |comment| %>
-    <div class="comment media">
-      <div class="media-left">
-        <%= render_avatar(comment.user, :thumb) %>
-      </div>
-      <div class="media-body">
-        <div>
-          <span class="commentor-name"><%= comment.user.name %></span>
-          &middot;
-          <span class="comment-time">cách đây <%= time_ago_in_words(comment.created_at) %></span>
-        </div>
-        <div class"comment-content">
-          <%= simple_format comment.content %>
-        </div>
-      </div>
-    </div>
-  <% end %>
-</div>
+<%= render 'articles/comments_section', article: @article %>

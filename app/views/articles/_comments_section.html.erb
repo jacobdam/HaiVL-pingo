@@ -1,0 +1,29 @@
+<div class="article-comments">
+  <% if user_signed_in? %>
+    <%= render 'articles/comment_form', article: article %>
+  <% else %>
+    <%= link_to "Hãy đăng nhập để bình luận", new_user_session_path %>
+  <% end %>
+
+  <hr />
+
+  <div class="comments">
+    <% article.comments.order(created_at: :desc).each do |comment| %>
+      <div class="comment media">
+        <div class="media-left">
+          <%= render_avatar(comment.user, :thumb) %>
+        </div>
+        <div class="media-body">
+          <div>
+            <span class="commentor-name"><%= comment.user.name %></span>
+            &middot;
+            <span class="comment-time">cách đây <%= time_ago_in_words(comment.created_at) %></span>
+          </div>
+          <div class"comment-content">
+            <%= simple_format comment.content %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
