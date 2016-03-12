@@ -1,3 +1,24 @@
 // Place all the styles related to the articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.article-content, .article-footer {
+  padding: 8px;
+  border: 1px #CCC solid;
+  box-shadow: 2px 2px 3px #CCC;
+  margin-top: 10px;
+  background-color: white;
+}
+
+.article-footer .author-name {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.article-footer .stats {
+  font-size: 85%;
+}
+
+.article-footer .stats-label {
+  font-weight: bold;
+}

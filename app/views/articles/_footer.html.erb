@@ -1,0 +1,23 @@
+<div class="article-footer">
+  <div class="row">
+    <div class="media col-xs-8">
+      <div class="media-left">
+        <%= render_avatar(article.user, :thumb) %>
+      </div>
+      <div class="media-body">
+        <div>
+          <span class="author-name"><%= article.user.name %></span>
+          &middot;
+          <span class="article-time">cách đây <%= time_ago_in_words(article.created_at) %></span>
+        </div>
+        <div class="article-stats"><span class="stats-label">Xem:</span> <%= article.views_count%> lượt</div>
+        <div class="article-stats"><span class="stats-label">Bình luận:</span> <%= article.comments.count %> lượt</div>
+      </div>
+    </div>
+    <div class="col-xs-4">
+      <div class="pull-right">
+        <%= render 'articles/vote_buttons', article: article %>
+      </div>
+    </div>
+  </div>
+</div>
