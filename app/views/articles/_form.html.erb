@@ -1,7 +1,7 @@
 <%= form_for(@article) do |f| %>
   <% if @article.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
+    <div class="error-messages text-danger bg-danger">
+      <h3>Có <%= @article.errors.count %> lỗi xảy ra, vui lòng kiểm tra lại dữ liệu nhập:</h3>
       <ul>
       <% @article.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,15 +10,19 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title, 'Tiêu đề' %><br>
-    <%= f.text_field :title %>
+  <div class="form-group">
+    <%= f.label :title, 'Tiêu đề' %>
+    <%= f.text_field :title, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :content, 'Nội dung' %><br>
-    <%= f.text_area :content %>
+  <div class="form-group">
+    <%= f.label :category, 'Danh mục' %>
+    <%= f.select :category_id, Category.all.map{ |c| [c.name, c.id] }, {}, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :content, 'Nội dung' %>
+    <%= f.text_area :content, class: 'form-control' %>
   </div>
   <div class="actions">
-    <%= f.submit 'Đăng bài' %>
+    <%= f.submit 'Đăng bài', class: 'btn btn-default center-block' %>
   </div>
 <% end %>
